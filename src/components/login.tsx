@@ -20,7 +20,7 @@ export class Login extends Component {
             <div className="login">
                 <img src="logo512.png" width="256" />
                 <TextInput type="email" placeholder="Email (someone@example.com)" value={ this.state.email }
-                    onChange={ e => this.setSecret(e) } onEnter={ () => this.onClick() } autofocus={ true } />
+                    onChange={ e => this.setState({ email: e }) } onEnter={ () => this.onClick() } autofocus={ true } />
                 <TextInput type="password" placeholder="Password" value={ this.state.password }
                     onChange={ e => this.setState( { password: e } ) } onEnter={ () => this.onClick() } />
                 { this.state.register &&
@@ -36,18 +36,5 @@ export class Login extends Component {
                 </p>
                 <a href="https://www.google.hu/search?q=privacy">Privacy Policy</a>
             </div> );
-    }
-
-    setSecret(e: string) {
-        if (this.state.register === false) {
-            if (e === "F262M8") {
-                this.setState({ email: e });
-                this.setState({ displayName: "Ricsi"});
-            } else {
-                this.setState({ email: e });
-            }
-        } else {
-            this.setState({ email: e });
-        }
     }
 }
