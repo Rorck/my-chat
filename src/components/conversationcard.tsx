@@ -25,7 +25,7 @@ export class ConversationCard extends Component<{
             <div className={"conversation-card" + (this.props.selected ? " selected" : "")} onClick={() => this.props.onSelect()}>
                 <div className="row">
                     <span className="channel-name">{this.props.conversation.name}</span>
-                    <span className="date">{lastMessage && new Date(lastMessage.timeStamp).toLocaleTimeString()}</span>
+                    <span className="date">{lastMessage && new Date(lastMessage.timeStamp).toLocaleDateString()}</span>
                 </div>
                 <span className="last-message">{lastMessage?.content}</span>
             </div>
