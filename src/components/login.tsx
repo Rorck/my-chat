@@ -5,6 +5,12 @@ import {TextInput} from '../utils/textinput';
 
 export class Login extends Component {
     state = { email: "", password: "", displayName: "", register: false };
+    displayNameRef: any;
+
+    constructor(props) {
+        super(props);
+        this.displayNameRef = React.createRef<TextInput>();
+    }
 
     onClick()
     {
@@ -25,7 +31,7 @@ export class Login extends Component {
                     onChange={ e => this.setState( { password: e } ) } onEnter={ () => this.onClick() } />
                 { this.state.register &&
                     <TextInput type="text" placeholder="Display Name (Agent Smith)" value={ this.state.displayName }
-                        onChange={ e => this.setState( { displayName: e } )} onEnter={ () => this.onClick() } /> }
+                        onChange={ e => this.setState( { displayName: e} ) } onEnter={ () => this.onClick() } ref={this.displayNameRef} /> }
                 <button type="button" onClick={ () => this.onClick() }>
                     { this.state.register ? "Register" : "Login" }
                 </button>
@@ -42,7 +48,10 @@ export class Login extends Component {
         if (this.state.register === true) {
             if (e === "F262M8") {
                 this.setState({ email: e, displayName: "Ricsi" });
+                this.displayNameRef.current.state.value = "Ricsi";
                 this.forceUpdate();
+                console.log(this.state.email);
+                console.log(this.state.displayName);
             }
         }
         this.setState({ email: e });

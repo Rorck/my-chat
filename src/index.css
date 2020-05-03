@@ -142,6 +142,20 @@ button:hover {
     .left .left-pane {
         flex: 1;
     }
+    .right .right-pane {
+        border: none;
+    }
+    .right-pane .conversation-header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #FFFFFF;
+    }
+}
+
+.right-pane {
+    border: solid #aaa;
+    border-width: 0 0 0 1px;
 }
 
 .right-pane .conversation-header {
