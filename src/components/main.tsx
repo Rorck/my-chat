@@ -9,8 +9,9 @@ export class Main extends Component {
     state = { selectedConversation: undefined as (ConversationDto | undefined) };
     
     render() {
+        let className = "main row " + ( this.state.selectedConversation ? "right" : "left" );
         return (
-            <div className="main row">
+            <div className={className}>
                 <LeftPane
                     inbox={proxy.inbox!}
                     selectedConversation={this.state.selectedConversation}
